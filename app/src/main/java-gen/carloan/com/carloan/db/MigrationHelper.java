@@ -18,16 +18,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import carloan.com.carloan.BuildConfig;
+
 
 /**
  * Created by jhhuang on 2016/11/10.
- * QQ:781913268
  * Description：数据库升级使用，在DaoMaster中修改版本触发升级数据库操作
  */
 public final class MigrationHelper
 {
 
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = BuildConfig.DEBUG;
     private static String TAG = "MigrationHelper";
 
     public static void migrate(SQLiteDatabase db, Class<? extends AbstractDao<?, ?>>... daoClasses)

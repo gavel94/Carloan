@@ -36,15 +36,15 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends MvpActiv
         ActivityCollector.addActivity(this);
         setContentView(R.layout.activity_base);
         fbi();
-        rootView.addView(loadContentView(), 0);
+        rootView.addView(loadContentView(),0);
         initViews(savedInstanceState);
         initData();
-        initEvent();
+        initEvents();
     }
 
     private void fbi()
     {
-        rootView = (FrameLayout) findViewById(R.id.rl_root);
+        rootView = (FrameLayout) findViewById(R.id.fl_root);
     }
 
     protected void parseIntent(Intent intent)
@@ -62,7 +62,7 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends MvpActiv
     public void setContentView(int layoutResID)
     {
         super.setContentView(layoutResID);
-        this.setStatusBar();
+//        this.setStatusBar();
     }
 
     @Override
@@ -84,7 +84,7 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends MvpActiv
      */
     protected void initViews(Bundle savedInstanceState)
     {
-        Logger.i("initViews");
+        Logger.i(getClass().getName()+":initViews");
     }
 
     /**
@@ -92,15 +92,15 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends MvpActiv
      */
     protected void initData()
     {
-        Logger.i("initData");
+        Logger.i(getClass().getName()+":initData");
     }
 
     /**
      * initialize event
      */
-    protected void initEvent()
+    protected void initEvents()
     {
-        Logger.i("initEvent");
+        Logger.i(getClass().getName()+":initEvents");
     }
 
     protected void setStatusBar()
