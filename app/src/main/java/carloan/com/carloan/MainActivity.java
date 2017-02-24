@@ -1,15 +1,28 @@
 package carloan.com.carloan;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity
+import android.databinding.DataBindingUtil;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import carloan.com.carloan.core.BaseActivity;
+import carloan.com.carloan.databinding.ActivityMainBinding;
+import carloan.com.carloan.ui.activity.presenter.MainPresenter;
+import carloan.com.carloan.ui.activity.contract.MainContract;
+
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.IView
 {
+    private ActivityMainBinding mBinding;
+    @Override
+    protected View loadContentView()
+    {
+        mBinding = DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.activity_main, null, false);
+        return mBinding.getRoot();
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected void initInject()
     {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        getActivityComponent().inject(this);
     }
 }
