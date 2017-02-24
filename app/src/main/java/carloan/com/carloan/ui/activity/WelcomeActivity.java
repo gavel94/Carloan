@@ -45,11 +45,13 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
     public void action2Login()
     {
         startActivity(new Intent(mContext, LoginActivity.class));
+        finish();
     }
 
     @Override
     public void action2main()
     {
         startActivity(new Intent(mContext, MainActivity.class));
+        finish();
     }
 }

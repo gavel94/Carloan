@@ -1,6 +1,7 @@
 package carloan.com.carloan.ui.activity;
 
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -30,5 +31,24 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     protected void initInject()
     {
         getActivityComponent().inject(this);
+    }
+
+    @Override
+    protected void initViews(Bundle savedInstanceState)
+    {
+        super.initViews(savedInstanceState);
+        mBinding.toolbar.inflateMenu(R.menu.login_menu);
+    }
+
+    @Override
+    protected void initData()
+    {
+        super.initData();
+    }
+
+    @Override
+    protected void initEvents()
+    {
+        super.initEvents();
     }
 }

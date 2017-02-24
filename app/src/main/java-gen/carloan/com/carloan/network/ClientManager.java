@@ -40,6 +40,28 @@ public class ClientManager
         return appClient;
     }
 
+    public static AppClient getClient()
+    {
+        AppClient appClient;
+        String url = AppClient.baseUrl;
+        appClient = clientMap.get(url);
+
+        if (appClient == null)
+        {
+            try
+            {
+                appClient = new AppClient(url);
+            } catch (Exception e)
+            {
+                appClient = new AppClient();
+                e.printStackTrace();
+            }
+            clientMap.put(url, appClient);
+        }
+
+        return appClient;
+    }
+
     public static void registerClient(String url)
     {
         if (!clientMap.containsKey(url))

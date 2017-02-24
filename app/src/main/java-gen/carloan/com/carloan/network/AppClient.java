@@ -29,7 +29,7 @@ public class AppClient
     private static Converter.Factory scalarsconverterfactory = ScalarsConverterFactory.create();
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
     private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
-    public static String baseUrl = "http://192.168.1.240:9080/";
+    public static String baseUrl = "http://appsrv.hzszn.com:8081/";
     private Retrofit retrofit;
 
     public AppClient()
@@ -80,7 +80,7 @@ public class AppClient
                 .addConverterFactory(scalarsconverterfactory)
                 .addConverterFactory(gsonConverterFactory)
                 .addCallAdapterFactory(rxJavaCallAdapterFactory)
-                .baseUrl("http://" + url)
+                .baseUrl(url)
                 .build();
 
     }
