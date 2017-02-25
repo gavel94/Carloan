@@ -14,7 +14,7 @@ public class BaseDTO implements Serializable,Cloneable
 {
     /**
      * 请求来源
-     * @see PlatformEnum
+     * @see PlatformEnum 默认Android
      */
     private int from = PlatformEnum.APP_ANDROID.getValue();
     /**
