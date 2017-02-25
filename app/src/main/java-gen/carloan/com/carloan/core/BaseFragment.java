@@ -57,6 +57,18 @@ public abstract class BaseFragment<T extends FragmentPresenter> extends MvpFragm
     }
 
     @Override
+    public void showLoading(String msg)
+    {
+        try
+        {
+            ((BaseActivity) mContext).showLoading(msg);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void toast(String msg)
     {
         ((BaseActivity) mContext).toast(msg);

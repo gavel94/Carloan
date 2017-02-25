@@ -1,14 +1,16 @@
-package carloan.com.carloan.network;
+package carloan.com.carloan.base;
+
+import java.io.Serializable;
 
 import carloan.com.carloan.constant.ActTypeEnum;
 import carloan.com.carloan.constant.PlatformEnum;
 
 /**
  * Created by jiahua on 17-2-24.
- * Description：发送请求的实体类
+ * Description：
  */
 
-public class BaseReq
+public class BaseDTO implements Serializable,Cloneable
 {
     /**
      * 请求来源
@@ -41,4 +43,15 @@ public class BaseReq
         this.actType = actType;
     }
 
+    @Override
+    protected BaseDTO clone()
+    {
+        try
+        {
+            return (BaseDTO)super.clone();
+        } catch (CloneNotSupportedException e)
+        {
+            return null;
+        }
+    }
 }

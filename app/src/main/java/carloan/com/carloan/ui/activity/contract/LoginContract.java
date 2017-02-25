@@ -11,7 +11,7 @@ public interface LoginContract
 {
     interface IMoudle
     {
-
+//        Observable<BaseRes>
     }
 
     interface IView extends ActivityView

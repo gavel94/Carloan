@@ -13,7 +13,7 @@ import rx.Observable;
 
 public interface ApiService
 {
-    //发送短信
+    //获取登录短信验证码
     @POST("/appsrv")
-    Observable<BaseRes> sendSMS(@Body SendMessageReq sendMessageReq);
+    Observable<BaseRes> getVerificationCodeBySMS(@Body SendMessageReq sendMessageReq);
 }

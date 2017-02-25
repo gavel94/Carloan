@@ -19,6 +19,7 @@ import com.orhanobut.logger.Logger;
 import carloan.com.carloan.R;
 import carloan.com.carloan.core.mvp.ActivityPresenter;
 import carloan.com.carloan.core.mvp.ActivityView;
+import carloan.com.carloan.view.CustomProgress;
 
 /**
  * Created by jhhuang on 2017/2/22.
@@ -28,11 +29,13 @@ import carloan.com.carloan.core.mvp.ActivityView;
 public abstract class BaseActivity<T extends ActivityPresenter> extends MvpActivity<T> implements ActivityView
 {
     private FrameLayout rootView;
+    protected CustomProgress progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        progress = CustomProgress.getProgress(this,getResources().getString(R.string.loading),true,null);
         ActivityCollector.addActivity(this);
         setContentView(R.layout.activity_base);
         fbi();
@@ -165,11 +168,20 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends MvpActiv
     @Override
     public void showLoading()
     {
+        progress.show();
+    }
+
+    @Override
+    public void showLoading(String msg)
+    {
+        progress.setMessage(msg);
+        progress.show();
     }
 
     @Override
     public void hideLoading()
     {
+        progress.dismiss();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package carloan.com.carloan.bean.req;
 
+import carloan.com.carloan.constant.SendSMSEnum;
 import carloan.com.carloan.network.BaseReq;
 
 /**
@@ -14,8 +15,14 @@ public class SendMessageReq extends BaseReq
      * 手机号
      */
     private String mobile;
-
+    /**
+     * 发送短信类型
+     * @see SendSMSEnum
+     */
     private String sendType;
+    /**
+     * MD5加密 from+mobile+sendType+key
+     */
     private String key;
 
     public String getMobile()
@@ -48,13 +55,4 @@ public class SendMessageReq extends BaseReq
         this.key = key;
     }
 
-    @Override
-    public String toString()
-    {
-        return super.toString() + "SendMessageReq{" +
-                "mobile='" + mobile + '\'' +
-                ", sendType='" + sendType + '\'' +
-                ", key='" + key + '\'' +
-                '}';
-    }
 }
